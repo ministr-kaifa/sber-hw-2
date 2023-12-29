@@ -13,6 +13,9 @@ public class Main {
       phoneBook.add("Ivanov", "88887776655");
       phoneBook.add("Ivanov", "89008007060");
       assertThat(phoneBook.get("Ivanov")).hasSameElementsAs(List.of("88887776655", "89008007060"));
-      assertThat(phoneBook.get("ivanov").size()).isEqualTo(0);
+      phoneBook.add("Sidorov", "88888888888");
+      phoneBook.add("Sidorov", "88888888888");
+      assertThat(phoneBook.get("Sidorov").size()).isEqualTo(1);
+
     }
 }

@@ -3,8 +3,10 @@ package ru.zubkoff;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /*
  * Написать простой класс ТелефонныйСправочник,
@@ -17,21 +19,21 @@ import java.util.Map;
  */
 public class PhoneBook {
 
-  private Map<String, List<String>> book;
+  private Map<String, Set<String>> book;
 
   public PhoneBook() {
     book = new HashMap<>();
   }
 
-  public List<String> get(String name) {
-    return book.getOrDefault(name, Collections.emptyList());
+  public Set<String> get(String name) {
+    return book.getOrDefault(name, Collections.emptySet());
   }
 
   public void add(String name, String number) {
     if (book.containsKey(name)) {
       book.get(name).add(number);
     } else {
-      book.put(name, new ArrayList<>(List.of(number)));
+      book.put(name, new HashSet<>(List.of(number)));
     }
   }
 }
